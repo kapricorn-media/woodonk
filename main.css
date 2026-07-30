@@ -18,29 +18,48 @@
 }
 
 body {
+    --info-padding: 120px;
+    --info-font-size: 18px;
+
     margin: 0;
     background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+@media (max-width: 600px) {
+    body {
+        --info-padding: 80px;
+    }
 }
 
 #main {
     --main-aspect-ratio: 0.6;
     --names-height: 15%;
+    --names-font-size: 56px;
     --portrait-height: 85%;
     --portrait-arch-height: 34%;
+    --curved-top-offset: 0;
     --curved-text-height-extra: 8%;
-    --details-bottom-padding: 5%;
-    --details-side-padding: 5%;
-    --names-font-size: 48px;
     --curved-font-size: 4px;
-    --details-font-size: 24px;
+    --curved-letter-spacing: 0.4px;
     --bottom-font-size: 24px;
     --bottom-arrow-font-size: 24px;
     --bottom-bottom-padding: 3%;
-    --portrait-image-bottom-offset: 120px;
+    --portrait-image-bottom-offset: 100px;
 
     aspect-ratio: var(--main-aspect-ratio);
-    height: 100vh;
     margin: 0 auto;
+    width: min(100vw, calc(100vh * var(--main-aspect-ratio)));
+}
+
+@media (max-width: 600px) {
+    #main {
+        --names-font-size: 42px;
+        --portrait-height: 95%;
+        --portrait-arch-height: 30%;
+        --curved-text-height-extra: 9%;
+        --portrait-image-bottom-offset: 20px;
+    }
 }
 
 #names {
@@ -69,7 +88,7 @@ body {
 
 #curved {
     position: absolute;
-    top: 0;
+    top: var(--curved-top-offset);
     left: 0;
     width: 100%;
     height: calc(var(--portrait-arch-height) + var(--curved-text-height-extra));
@@ -82,7 +101,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: var(--curved-font-size);
-    letter-spacing: 0.35px;
+    letter-spacing: var(--curved-letter-spacing);
 }
 
 #bottom {
@@ -99,7 +118,7 @@ body {
     font-size: var(--bottom-font-size);
     font-weight: 500;
     gap: 4px;
-    letter-spacing: 0.35px;
+    letter-spacing: 0.8px;
     text-align: center;
 }
 
@@ -110,14 +129,13 @@ body {
 }
 
 #info {
-    margin-top: 120px;
-    margin-bottom: 120px;
+    margin-top: var(--info-padding);
+    margin-bottom: var(--info-padding);
 
     color: #000000;
     font-family: "Montserrat", sans-serif;
-    font-size: var(--bottom-font-size);
+    font-size: var(--info-font-size);
     font-weight: 500;
     gap: 4px;
-    letter-spacing: 0.35px;
     text-align: center;
 }
