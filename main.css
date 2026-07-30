@@ -54,7 +54,7 @@ body {
 
 @media (max-width: 600px) {
     #main {
-        --names-font-size: 42px;
+        --names-font-size: 36px;
         --portrait-height: 90%;
         --portrait-arch-height: 32%;
         --portrait-image-bottom-offset: 20px;
